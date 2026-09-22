@@ -2,11 +2,9 @@ import { useState, useEffect } from 'react'
 import './App.css'
 
 function App() {
-  // useState holds the data once it arrives from the Java API
   const [trains, setTrains] = useState([])
   const [loading, setLoading] = useState(true)
 
-  // useEffect runs the moment the page loads to fetch the data
   useEffect(() => {
     fetch('http://localhost:8080/api/trains')
         .then(response => response.json())
@@ -46,7 +44,6 @@ function App() {
   )
 }
 
-// Helper function to call your new capacity logic endpoint
 function checkStatus(trainId) {
   fetch(`http://localhost:8080/api/trains/${trainId}/status`)
       .then(res => res.json())
